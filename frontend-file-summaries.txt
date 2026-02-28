@@ -1,0 +1,16 @@
+{
+  "frontend/src/index.css": "Global styles with deep dark casino theme using OKLCH color tokens, neon glow utilities (red/green/violet/gold), Orbitron and Rajdhani fonts, and custom number/color button styles.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Orbitron/Rajdhani font families, neon color palette tokens, game background colors, neon box-shadow utilities, and custom keyframe animations.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations: getCurrentRound (3s refetch), getRoundHistory, getBetHistory, getCallerUserProfile, saveCallerUserProfile, and placeBet mutation with cache invalidation.",
+  "frontend/src/components/LoginButton.tsx": "Login/logout button using Internet Identity with neon-styled green (login) and red (logout) variants, loading spinner, and query cache clearing on logout.",
+  "frontend/src/components/Header.tsx": "App header with Wingo logo image, user profile name display, and LoginButton, styled with dark glass-morphism and neon accents.",
+  "frontend/src/components/ProfileSetupModal.tsx": "First-time user profile setup dialog with name input, violet neon styling, and saveCallerUserProfile mutation; blocks interaction until submitted.",
+  "frontend/src/components/WingoGame/CountdownTimer.tsx": "Live countdown timer component that updates every second, shows MM:SS format with neon-violet styling that turns urgent red when ≤10 seconds remain.",
+  "frontend/src/components/WingoGame/RoundResultsBadge.tsx": "Single round result badge showing winning number and color-coded (red/green/violet) neon glow styling with hover scale effect.",
+  "frontend/src/components/WingoGame/RoundHistory.tsx": "Grid of last 10 round result badges fetched from backend, with loading skeletons and empty state.",
+  "frontend/src/components/WingoGame/BettingPanel.tsx": "Betting interface with number/color selection, quick-amount presets, custom input, and bet submission; fixed all `__kind` → `__kind__` discriminant property names to match the backend `WingoBetType` union.",
+  "frontend/src/components/WingoGame/ResultModal.tsx": "Round result dialog showing winning number, color, and player win/loss breakdown; fixed all `__kind` → `__kind__` discriminant accesses and narrowed variant-specific property access correctly.",
+  "frontend/src/components/WingoGame/BetHistoryTable.tsx": "Scrollable bet history table with round, selection, amount, and result columns; fixed all `__kind` → `__kind__` discriminant accesses throughout `getBetLabel`, `getBetColor`, and `getResultInfo` helpers.",
+  "frontend/src/components/WingoGame/WingoLobby.tsx": "Main game lobby assembling CountdownTimer, RoundHistory, BettingPanel, BetHistoryTable, and ResultModal with background image overlay and How to Play section. Fixed conflicting `text-lg`/`text-sm` classnames on the step number badge (line 134) by keeping only `text-sm`.",
+  "frontend/src/App.tsx": "Root app component managing auth state, profile setup modal, routing between landing/lobby screens, and footer with caffeine.ai attribution."
+}

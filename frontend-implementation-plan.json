@@ -1,0 +1,109 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Wingo Game Platform - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Build Wingo game frontend with lobby screen, countdown timer, round results display, betting panel, results notification, and bet history table",
+      "acceptanceCriteria": [
+        "Home screen displays live countdown timer for the current round.",
+        "Last 10 round results are shown with number and color-coded badges.",
+        "User can select a prediction (number 0-9 or color Red/Green/Violet) and enter an amount.",
+        "Placing a bet calls the backend and reflects confirmation or error to the user.",
+        "After round resolution, a result notification shows the winning number/color and the player's outcome (win/loss/payout).",
+        "Bet history table lists the player's previous bets with round ID, selection, amount, and result."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useWingoGame.ts",
+          "operation": "create",
+          "description": "Create hook to fetch current round state, round history, and bet history from backend using React Query. Include queries for getCurrentRound, getRoundHistory, and getBetHistory. Use the authorization component to ensure the user is authenticated before fetching bet history."
+        },
+        {
+          "path": "frontend/src/hooks/usePlaceBet.ts",
+          "operation": "create",
+          "description": "Create hook to handle placing bets via backend placeBet function. Include mutation with error handling and success feedback. Use the authorization component to verify user authentication before allowing bet placement."
+        },
+        {
+          "path": "frontend/src/components/WingoGame/CountdownTimer.tsx",
+          "operation": "create",
+          "description": "Create component that displays a live countdown timer for the current round based on round startTime and endTime. Update every second and show formatted time remaining."
+        },
+        {
+          "path": "frontend/src/components/WingoGame/RoundResultsBadge.tsx",
+          "operation": "create",
+          "description": "Create component to display a single round result with number and color-coded badge (red, green, or violet). Accept round data as props and apply neon glow styling."
+        },
+        {
+          "path": "frontend/src/components/WingoGame/RoundHistory.tsx",
+          "operation": "create",
+          "description": "Create component that displays the last 10 round results in a grid or list using RoundResultsBadge for each round. Fetch data using useWingoGame hook."
+        },
+        {
+          "path": "frontend/src/components/WingoGame/BettingPanel.tsx",
+          "operation": "create",
+          "description": "Create component with number selection buttons (0-9), color selection buttons (Red/Green/Violet), amount input field, and Place Bet button. Handle bet type selection state and call usePlaceBet mutation on submit. Display validation errors and success feedback. Use the authorization component to ensure user is authenticated before showing betting controls."
+        },
+        {
+          "path": "frontend/src/components/WingoGame/ResultModal.tsx",
+          "operation": "create",
+          "description": "Create modal component that shows round outcome notification including winning number, color result, and player's win/loss/payout status. Display after round resolution. Use shadcn/ui Dialog component."
+        },
+        {
+          "path": "frontend/src/components/WingoGame/BetHistoryTable.tsx",
+          "operation": "create",
+          "description": "Create table component displaying player's bet history with columns for round ID, bet selection, amount, and result (win/loss/payout). Fetch data using useWingoGame hook. Use shadcn/ui Table component. Use the authorization component to ensure user is authenticated before displaying history."
+        },
+        {
+          "path": "frontend/src/components/WingoGame/WingoLobby.tsx",
+          "operation": "create",
+          "description": "Create main lobby component that assembles CountdownTimer, RoundHistory, BettingPanel, and BetHistoryTable into a cohesive layout. Manage ResultModal display state based on round resolution events. Reference generated background image from frontend/public/assets/generated/game-bg.dim_1920x1080.png as background."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create modal component that prompts first-time users to enter their name using saveCallerUserProfile from the authorization component. Show only when user is authenticated but has no profile (getCallerUserProfile returns null). Use shadcn/ui Dialog component. Prevent flash by checking isFetched state as specified in authorization component usage."
+        },
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "create",
+          "description": "Create login/logout button component following the authorization component usage instructions. Use useInternetIdentity hook and handle authentication state, including clearing queryClient on logout."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "create",
+          "description": "Create header component displaying the generated logo from frontend/public/assets/generated/wingo-logo.dim_400x120.png and LoginButton. Apply neon styling consistent with the casino theme."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire WingoLobby into the main App component as the primary view. Add Header component at the top. Integrate ProfileSetupModal to show on first login. Use the authorization component to check authentication state and show WingoLobby only when user is authenticated and has a profile. Show a loading state while checking authentication."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Apply vibrant neon-lit casino-style visual theme with deep dark background, bright neon accents (red, green, violet, gold), bold typography, glowing effects, and clean grid layout. Render generated logo and background images.",
+      "acceptanceCriteria": [
+        "All screens use the deep dark background with neon accent styling.",
+        "Color badges and buttons use the game's red/green/violet color palette with glow effects.",
+        "Typography is bold and modern, maintaining readability against dark backgrounds.",
+        "Theme is consistent across the lobby, betting panel, results modal, and history table.",
+        "Logo and background images are loaded from frontend/public/assets/generated."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles to set deep dark background (near-black), define CSS custom properties for neon colors (red: #ff0055, green: #00ff88, violet: #aa00ff, gold: #ffd700), add glow effect utilities using box-shadow and text-shadow, and set bold modern typography. Ensure readability on dark backgrounds."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme to include neon color palette (neon-red, neon-green, neon-violet, neon-gold) and dark background colors. Add custom utilities for glow effects on buttons and cards."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A Wingo game project where the user wants to create a new platform.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Neon-glowing Wingo game logo with bold stylized text on a transparent background (wingo-logo.dim_400x120.png)\n- Dark neon background texture with subtle grid lines and faint colored light streaks in red, green, and violet (game-bg.dim_1920x1080.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-wingo-game-frontend-with-a-lobby-home-screen-showing-the-current-round-countdown-timer-last-10-round-results-number-color-badge-a-betting-panel-where-users-can-select-a-number-0-9-or-a-color-red-green-violet-and-enter-a-bet-amount-a-place-bet-button-that-calls-the-backend-a-results-modal-or-notification-showing-the-round-outcome-and-whether-the-player-won-or-lost-and-a-bet-history-table-showing-the-player-s-past-bets-with-outcome",
+      "title": "Build a Wingo game frontend with: a lobby/home screen showing the current round countdown timer, last 10 round results (number + color badge), a betting panel where users can select a number (0-9) or a color (Red/Green/Violet) and enter a bet amount, a Place Bet button that calls the backend, a results modal or notification showing the round outcome and whether the player won or lost, and a bet history table showing the player's past bets with outcome.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-vibrant-neon-lit-casino-style-visual-theme-across-the-entire-app-deep-dark-background-near-black-bright-neon-accent-colors-aligned-with-game-colors-red-green-violet-gold-for-wins-bold-modern-typography-glowing-card-and-button-effects-and-a-clean-grid-based-layout-render-the-generated-logo-wingo-logo-dim-400x120-png-and-background-game-bg-dim-1920x1080-png-from-frontend-public-assets-generated-as-static-assets",
+      "title": "Apply a vibrant, neon-lit casino-style visual theme across the entire app: deep dark background (near-black), bright neon accent colors aligned with game colors (red, green, violet, gold for wins), bold modern typography, glowing card and button effects, and a clean grid-based layout. Render the generated logo (wingo-logo.dim_400x120.png) and background (game-bg.dim_1920x1080.png) from frontend/public/assets/generated as static assets.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a new platform in the Wingo game",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create a Wingo number prediction game backend with the following core logic: support multiple rounds (each round has a countdown timer, a winning number 0-9, and a color result: red for 1/3/7/9, green for 2/4/6/8, violet for 0/5); store player bets (player ID, round ID, bet type: number or color, bet amount); determine winners and calculate payouts (number bet pays 9x, color bet pays 2x, violet pays 4.5x); expose query functions for current round state, round history, and player bet history; expose update functions to place a bet and trigger round resolution.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "2d",
+  "projectName": "Wingo Game",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

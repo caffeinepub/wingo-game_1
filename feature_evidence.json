@@ -1,0 +1,54 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-wingo-game-frontend-with-a-lobby-home-screen-showing-the-current-round-countdown-timer-last-10-round-results-number-color-badge-a-betting-panel-where-users-can-select-a-number-0-9-or-a-color-red-green-violet-and-enter-a-bet-amount-a-place-bet-button-that-calls-the-backend-a-results-modal-or-notification-showing-the-round-outcome-and-whether-the-player-won-or-lost-and-a-bet-history-table-showing-the-player-s-past-bets-with-outcome",
+      "featureTitle": "Build a Wingo game frontend with: a lobby/home screen showing the current round countdown timer, last 10 round results (number + color badge), a betting panel where users can select a number (0-9) or a color (Red/Green/Violet) and enter a bet amount, a Place Bet button that calls the backend, a results modal or notification showing the round outcome and whether the player won or lost, and a bet history table showing the player's past bets with outcome.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/LoginButton.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/components/WingoGame/BetHistoryTable.tsx",
+        "frontend/src/components/WingoGame/BettingPanel.tsx",
+        "frontend/src/components/WingoGame/CountdownTimer.tsx",
+        "frontend/src/components/WingoGame/ResultModal.tsx",
+        "frontend/src/components/WingoGame/RoundHistory.tsx",
+        "frontend/src/components/WingoGame/RoundResultsBadge.tsx",
+        "frontend/src/components/WingoGame/WingoLobby.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-vibrant-neon-lit-casino-style-visual-theme-across-the-entire-app-deep-dark-background-near-black-bright-neon-accent-colors-aligned-with-game-colors-red-green-violet-gold-for-wins-bold-modern-typography-glowing-card-and-button-effects-and-a-clean-grid-based-layout-render-the-generated-logo-wingo-logo-dim-400x120-png-and-background-game-bg-dim-1920x1080-png-from-frontend-public-assets-generated-as-static-assets",
+      "featureTitle": "Apply a vibrant, neon-lit casino-style visual theme across the entire app: deep dark background (near-black), bright neon accent colors aligned with game colors (red, green, violet, gold for wins), bold modern typography, glowing card and button effects, and a clean grid-based layout. Render the generated logo (wingo-logo.dim_400x120.png) and background (game-bg.dim_1920x1080.png) from frontend/public/assets/generated as static assets.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

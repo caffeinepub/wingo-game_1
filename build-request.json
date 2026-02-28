@@ -1,0 +1,87 @@
+{
+  "kind": "build_request",
+  "title": "Wingo Game Platform",
+  "projectName": "Wingo Game",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a Wingo number prediction game backend with the following core logic: support multiple rounds (each round has a countdown timer, a winning number 0-9, and a color result: red for 1/3/7/9, green for 2/4/6/8, violet for 0/5); store player bets (player ID, round ID, bet type: number or color, bet amount); determine winners and calculate payouts (number bet pays 9x, color bet pays 2x, violet pays 4.5x); expose query functions for current round state, round history, and player bet history; expose update functions to place a bet and trigger round resolution.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a new platform in wingo game."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores and retrieves round state including countdown, winning number, and color result.",
+        "Players can place bets on a number (0-9) or a color (red/green/violet) for the current open round.",
+        "Round resolution correctly computes winners and payouts according to the payout rules.",
+        "Query endpoints return current round info, past round history, and per-player bet history.",
+        "Invalid bets (e.g., betting on a closed round) are rejected with an error message."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build a Wingo game frontend with: a lobby/home screen showing the current round countdown timer, last 10 round results (number + color badge), a betting panel where users can select a number (0-9) or a color (Red/Green/Violet) and enter a bet amount, a Place Bet button that calls the backend, a results modal or notification showing the round outcome and whether the player won or lost, and a bet history table showing the player's past bets with outcome.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a new platform in wingo game."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home screen displays live countdown timer for the current round.",
+        "Last 10 round results are shown with number and color-coded badges.",
+        "User can select a prediction (number 0-9 or color Red/Green/Violet) and enter an amount.",
+        "Placing a bet calls the backend and reflects confirmation or error to the user.",
+        "After round resolution, a result notification shows the winning number/color and the player's outcome (win/loss/payout).",
+        "Bet history table lists the player's previous bets with round ID, selection, amount, and result."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Apply a vibrant, neon-lit casino-style visual theme across the entire app: deep dark background (near-black), bright neon accent colors aligned with game colors (red, green, violet, gold for wins), bold modern typography, glowing card and button effects, and a clean grid-based layout. Render the generated logo (wingo-logo.dim_400x120.png) and background (game-bg.dim_1920x1080.png) from frontend/public/assets/generated as static assets.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a new platform in wingo game."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All screens use the deep dark background with neon accent styling.",
+        "Color badges and buttons use the game's red/green/violet color palette with glow effects.",
+        "Typography is bold and modern, maintaining readability against dark backgrounds.",
+        "Theme is consistent across the lobby, betting panel, results modal, and history table.",
+        "Logo and background images are loaded from frontend/public/assets/generated."
+      ]
+    }
+  ],
+  "constraints": [
+    "All backend logic must reside in a single Motoko actor (backend/main.mo).",
+    "Do not use external databases or third-party APIs.",
+    "Frontend immutable paths (hooks, main.tsx, ui components) must not be modified."
+  ],
+  "nonGoals": [
+    "Real-money transactions or payment integration.",
+    "Multiplayer real-time WebSocket communication.",
+    "User authentication beyond Internet Identity.",
+    "Mobile app version."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Neon-glowing Wingo game logo with bold stylized text on a transparent background (wingo-logo.dim_400x120.png)",
+      "Dark neon background texture with subtle grid lines and faint colored light streaks in red, green, and violet (game-bg.dim_1920x1080.png)"
+    ],
+    "edits": []
+  }
+}
